@@ -33,3 +33,24 @@
     output.innerText = message;
   })
   })();
+(function () {
+  const one = document.getElementById("ex3_one");
+  const two = document.getElementById("ex3_two");
+  const element = document.getElementById("ex3_element");
+  element.addEventListener("dragstart", (e) => {
+    e.dataTransfer.setData("text", e.target.id);
+  })
+  const handlerDrop = (e) => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData("text");
+    e.target.appendChild(document.getElementById(data));
+  }
+  const allowDrop = (e) => {
+    e.preventDefault();
+
+  }
+  one.addEventListener("drop", handlerDrop);
+  two.addEventListener("drop", handlerDrop);
+  one.addEventListener("dragover", allowDrop);
+  two.addEventListener("dragover", allowDrop);
+})();
