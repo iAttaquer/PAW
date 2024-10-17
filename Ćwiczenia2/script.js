@@ -15,33 +15,35 @@
   })
 
   cw1.addEventListener("click", async function () {
-    answer.innerHTML = "loading...";
+    alert("loading...");
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await response.json();
+    console.log(data);
     answer.innerHTML = "";
-    answer.innerHTML += "<ul>";
     data.forEach((item) => {
-      answer.innerHtml += "<p>";
-      answer.innerHTML += `<span style="font-weight: bold;">${item.title}</span> 
-      <p>${item.body}</p>`;
-      answer.innerHTML += "</p>";
+      answer.innerHTML += `<div class="container">
+      <h1 class="heading">${item.title}</h1> 
+      <p>UserID: ${item.userId}, PostID: ${item.id}</p>
+      <p>${item.body}</p>
+      </div>`;
     })
-    answer.innerHTML += "</ul>";
   })
 
   cw2.addEventListener("click", async function () {
-    answer.innerHTML = "loading...";
+    alert("loading...");
     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
     const item = await response.json();
+    console.log(item);
     answer.innerHTML = "";
-    answer.innerHtml += "<p>";
-    answer.innerHTML += `<span style="font-weight: bold;">${item.title}</span> 
-    <p>${item.body}</p>`;
-    answer.innerHTML += "</p>";
+    answer.innerHTML += `<div class="container">
+      <h1 class="heading">${item.title}</h1> 
+      <p>UserID: ${item.userId}, PostID: ${item.id}</p>
+      <p>${item.body}</p>
+      </div>`;
   })
 
   cw3.addEventListener("click", async function () {
-    answer.innerHTML = "Processing...";
+    alert("Processing...");
     const newPost = {
       userId: 100,
       title: 'asdighasdg',
@@ -55,6 +57,7 @@
       },
     });
     const data = await response.json();
+    console.log(data);
     answer.innerHTML = `<p>Dodano nowy post o ID = ${data.id}</p>`;
   })
 })();
