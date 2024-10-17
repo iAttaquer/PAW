@@ -16,16 +16,19 @@
 
   cw1.addEventListener("click", async function () {
     alert("loading...");
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const response = await fetch('https://raw.githubusercontent.com/trak2025zz/json-server/refs/heads/main/db.json');
     const data = await response.json();
     console.log(data);
     answer.innerHTML = "";
-    data.forEach((item) => {
-      answer.innerHTML += `<div class="container">
+    data.posts.forEach((item) => {
+      answer.innerHTML += `<div class="container" id="${item.id}">
       <h1 class="heading">${item.title}</h1> 
-      <p>UserID: ${item.userId}, PostID: ${item.id}</p>
-      <p>${item.body}</p>
+      <p> PostID: ${item.id}</p>
       </div>`;
+    })
+    data.comments.forEach((comment) =>{
+      const div = document.getElementById(comment.postId);
+      div.innerHTML += `<p> ${comment.body}</p>`;
     })
   })
 
