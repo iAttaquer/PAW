@@ -1,0 +1,12 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+.heading {
+  font-weight: bold;
+}
+.container {
+  padding: 4px;
+  margin: 10px 0 10px 0;
+  border: 1px solid black;
+}
