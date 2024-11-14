@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+img {
+    margin-top: 10px;
+}
+
+.searched {
+    display: flex;
+    flex-direction: column;
+}
